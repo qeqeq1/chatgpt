@@ -1,0 +1,21 @@
+name: chatgpt
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.5
+  http: ^0.13.5
+  flutter_markdown: ^0.6.14
+  flutter_easyloading: ^3.0.5
+  permission_handler: ^10.2.0
+  shared_preferences: ^2.0.17
+  url_launcher: ^6.1.8
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
