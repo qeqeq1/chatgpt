@@ -1,4 +1,10 @@
-build/
+build/154bd5c29194d93f7a9329e03bbf6104/
+build/app/
+build/kotlin/
+build/permission_handler_android/
+build/shared_preferences_android/
+build/url_launcher_android/
+build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill
 .dart_tool/
 .idea/
 .flutter-plugins/
