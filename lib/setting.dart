@@ -59,12 +59,12 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 scrollPadding: EdgeInsets.all(0),
                 onChanged: (value) {
-                  if (value.substring(0, 2) == 'sk') {
-                    key = value;
-                  }
-                  if (value.substring(0, 5) == 'https') {
-                    apiUrl = value;
-                  }
+                  // if (value.substring(0, 2) == 'sk') {
+                  key = value;
+                  // }
+                  // if (value.substring(0, 5) == 'https') {
+                  //   apiUrl = value;
+                  // }
                   save();
                 },
                 style: TextStyle(color: Colors.white, fontSize: 20),

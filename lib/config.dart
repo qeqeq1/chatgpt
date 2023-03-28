@@ -10,12 +10,12 @@ SharedPreferences? local;
 
 save() async {
   local = await SharedPreferences.getInstance();
-  local?.setString(key, key);
-  local?.setString(apiUrl, apiUrl);
+  local?.setString('key', key);
+  local?.setString('apiUrl', apiUrl);
 }
 
 load() async {
   local = await SharedPreferences.getInstance();
-  key = local?.getString(key) ?? '';
-  apiUrl = local?.getString(apiUrl) ?? apiUrl;
+  key = local?.getString('key') ?? '';
+  apiUrl = local?.getString('apiUrl') ?? apiUrl;
 }

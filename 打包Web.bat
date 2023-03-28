@@ -1,1 +1,3 @@
-flutter build web --web-renderer canvaskit
+flutter build web
+pause
+--web-renderer canvaskit

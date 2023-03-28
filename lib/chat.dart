@@ -6,6 +6,8 @@ import 'bubble.dart';
 import 'chatgpt.dart';
 import 'config.dart';
 
+ScrollController scrollController = ScrollController();
+
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
@@ -14,9 +16,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  ScrollController scrollController = ScrollController();
   TextEditingController controller = TextEditingController();
-  FocusNode focusNode = FocusNode();
   bool showToBottom = false;
 
   @override
@@ -27,11 +27,12 @@ class _ChatPageState extends State<ChatPage> {
     });
     scrollController.addListener(() {
       if (scrollController.offset < scrollController.position.maxScrollExtent) {
+        setState(() {});
         showToBottom = true;
       } else {
+        setState(() {});
         showToBottom = false;
       }
-      setState(() {});
     });
   }
 
@@ -54,14 +55,16 @@ class _ChatPageState extends State<ChatPage> {
     }
     chatgpt(content);
     controller.clear();
-    focusNode.unfocus();
-    scrollController.animateTo(scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 200), curve: Curves.easeInOut);
+    Future.delayed(Duration(milliseconds: 500), () {
+      scrollController.jumpTo(scrollController.position.maxScrollExtent);
+    });
+    setState(() {});
   }
 
   chatgpt(String content) async {
     String _content = '';
-    if (content.substring(content.length - 2, content.length) == '继续') {
+    if (content.length >= 2 &&
+        content.substring(content.length - 2, content.length) == '继续') {
       for (int i = 2; i < messages.length; i++) {
         _content = _content + '\r\n' + messages[i].text;
       }
@@ -87,7 +90,6 @@ class _ChatPageState extends State<ChatPage> {
             GestureDetector(
               onTap: () {
                 messages.clear();
-                focusNode.unfocus();
                 chatgpt('你好');
               },
               child: Icon(Icons.refresh, size: 40, color: Colors.white),
@@ -106,41 +108,15 @@ class _ChatPageState extends State<ChatPage> {
           ),
           Column(children: [
             Expanded(
-              child: Padding(
-                  padding: EdgeInsets.only(bottom: 70),
-                  child: Obx(() => ListView.builder(
-                        controller: scrollController,
-                        physics: AlwaysScrollableScrollPhysics(),
-                        itemBuilder: (_, index) => messages[index],
-                        itemCount: messages.length,
-                      ))),
+              child: Obx(() => ListView.builder(
+                    controller: scrollController,
+                    physics: AlwaysScrollableScrollPhysics(),
+                    itemBuilder: (_, index) => messages[index],
+                    itemCount: messages.length,
+                  )),
             ),
-          ]),
-          Positioned(
-              bottom: 75,
-              right: 5,
-              child: GestureDetector(
-                onTap: () {
-                  scrollController.animateTo(
-                      scrollController.position.maxScrollExtent,
-                      duration: Duration(milliseconds: 200),
-                      curve: Curves.easeInOut);
-                },
-                child: ClipOval(
-                  child: Container(
-                    color: showToBottom ? Colors.grey : Colors.transparent,
-                    child: Icon(
-                      Icons.file_download,
-                      size: 30,
-                      color: showToBottom ? Colors.white : Colors.transparent,
-                    ),
-                  ),
-                ),
-              )),
-          Positioned(
-            bottom: 0,
-            child: Container(
-                margin: EdgeInsets.only(left: 25, bottom: 10),
+            Container(
+                margin: EdgeInsets.only(top: 5, bottom: 5),
                 padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                 height: 50,
                 width: MediaQuery.of(context).size.width - 50,
@@ -151,7 +127,6 @@ class _ChatPageState extends State<ChatPage> {
                   children: [
                     TextField(
                       controller: controller,
-                      focusNode: focusNode,
                       cursorColor: Colors.white,
                       decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -176,8 +151,29 @@ class _ChatPageState extends State<ChatPage> {
                       style: TextStyle(color: Colors.white, fontSize: 20),
                     ),
                   ],
-                )),
-          )
+                ))
+          ]),
+          Positioned(
+              bottom: 75,
+              right: 5,
+              child: GestureDetector(
+                onTap: () {
+                  scrollController.animateTo(
+                      scrollController.position.maxScrollExtent,
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeInOut);
+                },
+                child: ClipOval(
+                  child: Container(
+                    color: showToBottom ? Colors.grey : Colors.transparent,
+                    child: Icon(
+                      Icons.file_download,
+                      size: 30,
+                      color: showToBottom ? Colors.white : Colors.transparent,
+                    ),
+                  ),
+                ),
+              )),
         ]));
   }
 }

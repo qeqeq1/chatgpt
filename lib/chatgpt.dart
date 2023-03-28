@@ -2,21 +2,14 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'bubble.dart';
+import 'chat.dart';
 import 'config.dart';
-
-///列出所有模型
-models() async {
-  Uri url = Uri.parse('$apiUrl/v1/models');
-  Map<String, String> headers = {'Authorization': 'Bearer ' + key};
-  var response = await http.post(url, headers: headers);
-  if (response.statusCode == 200) {
-    Map result = jsonDecode(utf8.decode(response.bodyBytes));
-    return result;
-  }
-}
 
 ///聊天
 chat(String content) async {
+  Future.delayed(Duration(milliseconds: 500), () {
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+  });
   Uri url = Uri.parse('$apiUrl/v1/chat/completions');
   Map<String, String> headers = {
     'Content-Type': 'application/json',
@@ -80,4 +73,7 @@ chat(String content) async {
     Bubble message = Bubble(text);
     messages.add(message);
   }
+  Future.delayed(Duration(milliseconds: 500), () {
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+  });
 }
