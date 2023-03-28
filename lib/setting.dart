@@ -12,22 +12,18 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
   TextEditingController keyController = TextEditingController();
-  TextEditingController apiController = TextEditingController();
   FocusNode keyFocusNode = FocusNode();
-  FocusNode apiFocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
     keyController.text = key;
-    apiController.text = apiUrl;
   }
 
   @override
   void dispose() {
     super.dispose();
     keyController.dispose();
-    apiController.dispose();
   }
 
   settingTextField(String title, String input, TextEditingController controller,
@@ -59,12 +55,7 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 scrollPadding: EdgeInsets.all(0),
                 onChanged: (value) {
-                  // if (value.substring(0, 2) == 'sk') {
                   key = value;
-                  // }
-                  // if (value.substring(0, 5) == 'https') {
-                  //   apiUrl = value;
-                  // }
                   save();
                 },
                 style: TextStyle(color: Colors.white, fontSize: 20),
@@ -96,7 +87,6 @@ class _SettingPageState extends State<SettingPage> {
       body: GestureDetector(
         onTap: () {
           keyFocusNode.unfocus();
-          apiFocusNode.unfocus();
         },
         child: Container(
           color: Color.fromRGBO(52, 53, 65, 1),
@@ -114,21 +104,15 @@ class _SettingPageState extends State<SettingPage> {
                               Orientation.portrait
                           ? 2
                           : 1,
-                  key.length == 0
-                      ? 200
-                      : key.length *
-                          25 /
-                          (MediaQuery.of(context).orientation ==
-                                  Orientation.portrait
-                              ? 4.2
-                              : 2.25)),
-              // Padding(padding: EdgeInsets.only(top: 10)),
-              // settingTextField('API', apiUrl, apiController, apiFocusNode, 1,
-              //     apiUrl.length * 10),
+                  MediaQuery.of(context).orientation == Orientation.portrait
+                      ? key.length == 0
+                          ? 200
+                          : 280
+                      : 570),
               Padding(padding: EdgeInsets.only(top: 10)),
               Container(
                   padding: EdgeInsets.all(10),
-                  width: 400,
+                  margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
                   decoration: BoxDecoration(
                       color: Color.fromRGBO(64, 65, 79, 1),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
