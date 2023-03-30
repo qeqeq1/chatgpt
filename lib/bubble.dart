@@ -38,17 +38,22 @@ class Bubble extends StatelessWidget {
             GestureDetector(
               onDoubleTap: () {
                 if (text.contains('```')) {
-                  int start = text.indexOf('```') + 3;
-                  int last = text.lastIndexOf('```');
-                  if (start != -1 && last != -1) {
-                    String code = text.substring(start, last);
-                    int first = code.indexOf("""
-
-""");
-                    code = code.substring(first);
-                    Clipboard.setData(ClipboardData(text: code));
-                    EasyLoading.showToast('复制成功');
+                  final codeBlockRegExp =
+                      RegExp(r'```.*?```', multiLine: true, dotAll: true);
+                  final codeBlocks = codeBlockRegExp.allMatches(text);
+                  String output = '';
+                  String code = '';
+                  for (final match in codeBlocks) {
+                    final codeBlock = match.group(0);
+                    code = '$codeBlock';
+                    final firstNewLineIndex = code.indexOf('\n');
+                    code = code.substring(firstNewLineIndex, code.length);
+                    code = code.substring(0, code.length - 3);
+                    output += '$code';
                   }
+                  output = output.substring(1, output.length - 1);
+                  Clipboard.setData(ClipboardData(text: output));
+                  EasyLoading.showToast('复制成功');
                 } else {
                   Clipboard.setData(ClipboardData(text: text));
                   EasyLoading.showToast('复制成功');

@@ -50,7 +50,7 @@ class _ChatPageState extends State<ChatPage> {
       }
     }
     if (controller.text.isNotEmpty) {
-      Bubble message = Bubble(content, isLeft: false);
+      Bubble message = Bubble(content, isLeft: true);
       messages.add(message);
     }
     chatgpt(content);
