@@ -53,7 +53,11 @@ class _ChatPageState extends State<ChatPage> {
       Bubble message = Bubble(content, isLeft: true);
       messages.add(message);
     }
-    chatgpt(content);
+    if (content == 'key') {
+      checkToken(content);
+    } else {
+      chatgpt(content);
+    }
     controller.clear();
     Future.delayed(Duration(milliseconds: 500), () {
       scrollController.jumpTo(scrollController.position.maxScrollExtent);
