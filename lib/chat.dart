@@ -50,7 +50,7 @@ class _ChatPageState extends State<ChatPage> {
       }
     }
     if (controller.text.isNotEmpty) {
-      Bubble message = Bubble(content, isLeft: true);
+      Bubble message = Bubble(content, isLeft: false);
       messages.add(message);
     }
     if (content == 'key') {
