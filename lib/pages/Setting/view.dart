@@ -11,7 +11,7 @@ class SettingPage extends GetView<SettingController> {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Text(
-          'Key:',
+          'Key: ',
           style: TextStyle(color: Colors.white, fontSize: 25),
         ),
         const Padding(padding: EdgeInsets.only(left: 10)),
