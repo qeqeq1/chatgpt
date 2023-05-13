@@ -1,0 +1,13 @@
+{"logTime": "0513/142200", "correlationVector":"w8hy03O0KccMs2bPTlQvC8.0","action":"FeedSettingFetch_homeCloud", "result":"0", "context":{}}
+{"logTime": "0513/142200", "correlationVector":"px6f26r/50oL7iRw8kcoP/.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL0100000T"}}
+{"logTime": "0513/142200", "correlationVector":"px6f26r/50oL7iRw8kcoP/","action":"Initial GetUpdates", "result":"", "context":Reason: NEW_CLIENT. cV=px6f26r/50oL7iRw8kcoP/}
+{"logTime": "0513/142201", "correlationVector":"px6f26r/50oL7iRw8kcoP/.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 1 update(s). cV=px6f26r/50oL7iRw8kcoP/.0;server=GENERAL0100000T;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0513/142203", "correlationVector":"1p4dcEhFATVsJ96kjXMqt/","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"", "migrationStage":"", "server":""}}
+{"logTime": "0513/142203", "correlationVector":"wxc9Dkh80wCcGIrGUHTiNV","action":"Normal GetUpdate request", "result":"", "context":cV=wxc9Dkh80wCcGIrGUHTiNV
+Refresh requested types: Encryption Keys}
+{"logTime": "0513/142203", "correlationVector":"wxc9Dkh80wCcGIrGUHTiNV.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL01000014"}}
+{"logTime": "0513/142203", "correlationVector":"wxc9Dkh80wCcGIrGUHTiNV.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 0 update(s). cV=wxc9Dkh80wCcGIrGUHTiNV.0;server=GENERAL01000014;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}
+{"logTime": "0513/142203", "correlationVector":"VfKxrterrxdfRkf+Qp7QPU","action":"Normal GetUpdate request", "result":"", "context":cV=VfKxrterrxdfRkf+Qp7QPU
+Refresh requested types: Encryption Keys}
+{"logTime": "0513/142204", "correlationVector":"VfKxrterrxdfRkf+Qp7QPU.1","action":"SyncServerConnectionManagerRequest", "result":"SYNC_SERVER_OK", "context":{"environment":"Prod_SoutheastAsia_000j", "migrationStage":"NotStarted", "server":"GENERAL01000019"}}
+{"logTime": "0513/142204", "correlationVector":"VfKxrterrxdfRkf+Qp7QPU.2","action":"GetUpdates Response", "result":"SYNCER_OK", "context":Received 0 update(s). cV=VfKxrterrxdfRkf+Qp7QPU.0;server=GENERAL01000019;cloudType=Consumer;environment=Prod_SoutheastAsia_000j;migrationStage=NotStarted}

@@ -1,6 +1,5 @@
 import 'package:chatgpt/pages/Setting/controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SettingPage extends GetView<SettingController> {
@@ -9,37 +8,35 @@ class SettingPage extends GetView<SettingController> {
 
   Widget settingTextField(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        Text(
+        const Text(
           'Key:',
-          style: TextStyle(color: Colors.white, fontSize: 25.sp),
+          style: TextStyle(color: Colors.white, fontSize: 25),
         ),
-        Padding(padding: EdgeInsets.only(left: 10.w)),
+        const Padding(padding: EdgeInsets.only(left: 10)),
         ClipRRect(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
             color: const Color.fromRGBO(64, 65, 79, 1),
             child: Container(
               constraints: BoxConstraints(
-                  maxHeight: 35,
-                  maxWidth: MediaQuery.of(context).size.width - 100.w),
+                  maxWidth: MediaQuery.of(context).size.width - 100),
               child: TextField(
                 controller: settingController.keyController,
                 cursorColor: Colors.white,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(top: -18.h),
-                  enabledBorder: const UnderlineInputBorder(
+                decoration: const InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent)),
-                  focusedBorder: const UnderlineInputBorder(
+                  focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.transparent)),
                 ),
                 scrollPadding: const EdgeInsets.all(0),
                 onChanged: (key) {
                   settingController.setKey(key);
                 },
-                style: TextStyle(color: Colors.white, fontSize: 25.sp),
+                style: const TextStyle(color: Colors.white, fontSize: 25),
               ),
             ),
           ),
@@ -60,7 +57,7 @@ class SettingPage extends GetView<SettingController> {
           Container(color: const Color.fromRGBO(52, 53, 65, 1)),
           Column(
             children: [
-              Padding(padding: EdgeInsets.only(top: 10.h)),
+              const Padding(padding: EdgeInsets.only(top: 10)),
               settingTextField(context),
             ],
           ),

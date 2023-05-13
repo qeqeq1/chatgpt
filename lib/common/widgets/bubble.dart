@@ -2,7 +2,6 @@ import 'package:chatgpt/pages/Setting/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class Bubble extends StatelessWidget {
@@ -22,17 +21,17 @@ class Bubble extends StatelessWidget {
 
   Widget _buildApiKeysButton() {
     return Container(
-      padding: EdgeInsets.all(20.r),
+      padding: const EdgeInsets.all(20),
       color: const Color.fromRGBO(68, 70, 84, 1),
       child: GestureDetector(
         onTap: () async {
           Get.to(() => SettingPage());
         },
-        child: Padding(
-          padding: EdgeInsets.only(right: 10.h),
+        child: const Padding(
+          padding: EdgeInsets.only(right: 10),
           child: Text(
             'Key为空,点击前往设置Key',
-            style: TextStyle(color: Colors.red, fontSize: 25.sp),
+            style: TextStyle(color: Colors.red, fontSize: 25),
           ),
         ),
       ),
@@ -45,12 +44,12 @@ class Bubble extends StatelessWidget {
         Get.to(() => fullScreen());
       },
       child: Container(
-        padding: EdgeInsets.all(15.r),
+        padding: const EdgeInsets.all(15),
         color: isLeft
             ? const Color.fromRGBO(52, 53, 65, 1)
             : const Color.fromRGBO(68, 70, 84, 1),
         child: SelectableText(text,
-            style: TextStyle(color: Colors.white, fontSize: 25.sp)),
+            style: const TextStyle(color: Colors.white, fontSize: 25)),
       ),
     );
   }

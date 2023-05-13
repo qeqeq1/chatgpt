@@ -1,6 +1,5 @@
 import 'package:chatgpt/common/widgets/bubble.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../Setting/view.dart';
@@ -40,12 +39,12 @@ class HomepageViewGetX extends GetView<HomepageController> {
             },
             child: const Icon(Icons.refresh),
           ),
-          Padding(padding: EdgeInsets.only(right: 5.w)),
+          const Padding(padding: EdgeInsets.only(right: 5)),
           GestureDetector(
             onTap: () => Get.to(() => SettingPage()),
             child: const Icon(Icons.settings),
           ),
-          Padding(padding: EdgeInsets.only(right: 5.w)),
+          const Padding(padding: EdgeInsets.only(right: 5)),
         ],
         bottom: PreferredSize(
             preferredSize: const Size.fromHeight(0),
@@ -78,22 +77,20 @@ class HomepageViewGetX extends GetView<HomepageController> {
 
   Widget textField(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(vertical: 10.h),
-        padding: EdgeInsets.only(
-          left: 15.w,
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15
         ),
-        height: 50.h,
-        width: MediaQuery.of(context).size.width - 50.w,
+        width: MediaQuery.of(context).size.width - 50,
         decoration: BoxDecoration(
           color: const Color.fromRGBO(64, 65, 79, 1),
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: TextField(
           cursorColor: Colors.white,
           scrollPadding: const EdgeInsets.all(0),
-          style: TextStyle(color: Colors.white, fontSize: 25.sp),
+          style: const TextStyle(color: Colors.white, fontSize: 25),
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.only(bottom: -5),
             enabledBorder: const UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.transparent),
             ),
@@ -101,9 +98,9 @@ class HomepageViewGetX extends GetView<HomepageController> {
               borderSide: BorderSide(color: Colors.transparent),
             ),
             suffixIcon: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.send,
-                size: 35.r,
+                size: 30,
               ),
               color: Colors.white,
               onPressed: () => () {
@@ -122,8 +119,8 @@ class HomepageViewGetX extends GetView<HomepageController> {
   Widget jumpToLast() {
     return homepageController.isAtButton.value
         ? Positioned(
-            bottom: 70.h,
-            right: 10.w,
+            bottom: 70,
+            right: 10,
             child: GestureDetector(
               onTap: () {
                 homepageController.jumpToLast();
@@ -131,10 +128,10 @@ class HomepageViewGetX extends GetView<HomepageController> {
               child: ClipOval(
                 child: Container(
                   color: Colors.grey,
-                  child: Icon(
+                  child: const Icon(
                     Icons.keyboard_arrow_down_sharp,
                     color: Colors.white,
-                    size: 40.r,
+                    size: 40,
                   ),
                 ),
               ),
