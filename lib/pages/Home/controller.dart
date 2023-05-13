@@ -17,11 +17,11 @@ class HomepageController extends GetxController {
   _initData() async {
     update(["homepage"]);
     await model.load();
-    // loading.value = true;
-    // String result = await ChatGPT(model.key.value).chat('你好');
-    // messages.add(Bubble(result.toString(), isLeft: false));
-    // loading.value = false;
-    // scrollController.addListener(controllerListener);
+    loading.value = true;
+    String result = await ChatGPT(model.key.value).chat('你好');
+    messages.add(Bubble(result.toString(), isLeft: false));
+    loading.value = false;
+    scrollController.addListener(controllerListener);
   }
 
   void controllerListener() {

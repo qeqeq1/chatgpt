@@ -29,15 +29,12 @@ class ChatGPT {
         {'role': 'user', 'content': content}
       ]
     });
-    try {
       var response = await http.post(url, headers: headers, body: body);
       if (response.statusCode == 200) {
         Map result = jsonDecode(utf8.decode(response.bodyBytes));
         return result['choices'][0]['message']['content'];
+      }else{
+        return utf8.decode(response.bodyBytes);
       }
-    } catch (e) {
-      return '异常: $e';
-    }
-    return '';
   }
 }

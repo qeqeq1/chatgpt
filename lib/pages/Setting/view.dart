@@ -22,7 +22,7 @@ class SettingPage extends GetView<SettingController> {
             color: const Color.fromRGBO(64, 65, 79, 1),
             child: Container(
               constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width - 100),
+                  maxWidth: MediaQuery.of(context).size.width - 150),
               child: TextField(
                 controller: settingController.keyController,
                 cursorColor: Colors.white,
